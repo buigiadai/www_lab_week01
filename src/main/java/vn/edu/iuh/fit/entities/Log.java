@@ -1,41 +1,38 @@
 package vn.edu.iuh.fit.entities;
 
-
-import java.util.Date;
+import java.sql.Date;
 
 public class Log {
-    private Integer logId;
-    private Integer accountId;
+    private long id;
+    private String accountId;
     private Date loginTime;
     private Date logoutTime;
-    private String note;
+    private String notes;
 
-    // Constructors
-    public Log() {}
+    public Log() {
+    }
 
-    public Log(Integer logId, Integer accountId, Date loginTime, Date logoutTime, String note ) {
-        this.logId = logId;
+    public Log(int id, String accountId, Date loginTime, Date logoutTime, String notes) {
+        this.id = id;
         this.accountId = accountId;
         this.loginTime = loginTime;
         this.logoutTime = logoutTime;
-        this.note = note;
+        this.notes = notes;
     }
 
-    // Getters and Setters
-
-    public Integer getLogId() {
-        return logId;
+    public long getId() {
+        return id;
     }
 
-    public void setLogId(Integer logId) {
-        this.logId = logId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Integer getAccountId() {
+    public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(Integer accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
 
@@ -55,11 +52,22 @@ public class Log {
         this.logoutTime = logoutTime;
     }
 
-    public String getNote() {
-        return note;
+    public String getNotes() {
+        return notes;
     }
 
-    public void setNote(String note) {
-        this.note = note;
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "id=" + id +
+                ", accountId='" + accountId + '\'' +
+                ", loginTime=" + loginTime +
+                ", logoutTime=" + logoutTime +
+                ", notes='" + notes + '\'' +
+                '}';
     }
 }

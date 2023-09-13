@@ -1,40 +1,48 @@
 package vn.edu.iuh.fit.entities;
 
-
 public class GrantAccess {
-    private Integer accountId;
-    private Integer roleId;
-    private Integer isGrant; // 0-disable, 1-enable
+    private String roleId;
+    private String accountId;
+    private int isGrant;
     private String note;
 
-    // Constructors
     public GrantAccess() {
     }
 
-
-    // Getters and Setters
-
-    public Integer getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Integer accountId) {
+    public GrantAccess(String roleId, String accountId, int isGrant, String note) {
+        this.roleId = roleId;
         this.accountId = accountId;
+        this.isGrant = isGrant;
+        this.note = note;
     }
 
-    public Integer getRoleId() {
+    public GrantAccess(String roleId, String accountId) {
+        this.roleId = roleId;
+        this.accountId = accountId;
+
+    }
+
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
-    public Integer getIsGrant() {
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public int getIsGrant() {
         return isGrant;
     }
 
-    public void setIsGrant(Integer isGrant) {
+    public void setIsGrant(int isGrant) {
         this.isGrant = isGrant;
     }
 
@@ -42,16 +50,17 @@ public class GrantAccess {
         return note;
     }
 
-
     public void setNote(String note) {
         this.note = note;
     }
 
-    public GrantAccess(Integer accountId, Integer roleId, Integer isGrant, String note) {
-        this.accountId = accountId;
-        this.isGrant = isGrant;
-        this.roleId = roleId;
-        this.note = note;
+    @Override
+    public String toString() {
+        return "GrantAccess{" +
+                "roleId='" + roleId + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", isGrant=" + isGrant +
+                ", note='" + note + '\'' +
+                '}';
     }
-
 }

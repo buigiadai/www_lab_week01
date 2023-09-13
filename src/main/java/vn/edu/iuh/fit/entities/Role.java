@@ -1,29 +1,28 @@
 package vn.edu.iuh.fit.entities;
 
-
 public class Role {
-    private Integer roleId;
+    private String roleId;
     private String roleName;
     private String description;
-    private Integer status; // 1-active, 0-deactive, -1-deleted
+    private int status;
 
-    // Constructors
-    public Role() {}
 
-    public Role(Integer roleId, String roleName, String description, Integer status) {
+    public Role() {
+
+    }
+
+    public Role(String roleId, String role_name, String description, int status) {
         this.roleId = roleId;
-        this.roleName = roleName;
+        this.roleName = role_name;
         this.description = description;
         this.status = status;
     }
 
-    // Getters and Setters
-
-    public Integer getRoleId() {
+    public String getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(String roleId) {
         this.roleId = roleId;
     }
 
@@ -43,11 +42,21 @@ public class Role {
         this.description = description;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "roleId='" + roleId + '\'' +
+                ", roleName='" + roleName + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                '}';
     }
 }

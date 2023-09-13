@@ -1,27 +1,33 @@
 package vn.edu.iuh.fit.entities;
 
-
-import java.util.regex.Pattern;
-
 public class Account {
-    private Integer accountId;
+    private String accountId;
     private String fullName;
     private String password;
     private String email;
     private String phone;
-    private Integer status;
+    private int status;
 
-    // Constructors
     public Account() {
     }
+    public Account(String accountId) {
+        this.accountId = accountId;
+    }
 
+    public Account(String accountId, String fullName, String password, String email, String phone, int status) {
+        this.accountId = accountId;
+        this.fullName = fullName;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+    }
 
-    // Getters and Setters
-    public Integer getAccountId() {
+    public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(Integer accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
 
@@ -46,11 +52,7 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        if (isValidEmail(email)) {
-            this.email = email;
-        } else {
-            throw new IllegalArgumentException("Invalid email address");
-        }
+        this.email = email;
     }
 
     public String getPhone() {
@@ -58,39 +60,26 @@ public class Account {
     }
 
     public void setPhone(String phone) {
-        if (isValidPhone(phone)) {
-            this.phone = phone;
-        } else {
-            throw new IllegalArgumentException("Invalid phone number");
-        }
-    }
-
-    public Account(Integer accountId, String fullName, String password, String email, String phone, Integer status) {
-        this.accountId = accountId;
-        this.fullName = fullName;
-        this.password = password;
-        this.email = email;
         this.phone = phone;
-        this.status = status;
-
-        this.setEmail(email);
-        this.setPhone(phone);
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    private boolean isValidEmail(String email) {
-        String emailRegex = "^[A-Za-z0-9+_.-]+@(.+)$";
-        return Pattern.compile(emailRegex).matcher(email).matches();
-    }
-
-    private boolean isValidPhone(String phone) {
-        return phone.matches("^\\d{10}$");
+    @Override
+    public String toString() {
+        return "Account{" +
+                "accountId='" + accountId + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", status=" + status +
+                '}';
     }
 }
